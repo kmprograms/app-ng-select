@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row mt-5">
+    Selected city ID: {{selectedCountryId}}
+  </div>
+  <!--
+    https://www.npmjs.com/package/@ng-select/ng-select
+  -->
+  <div class="row mt-3">
+    <ng-select [items]="countries"
+               bindLabel="name"
+               bindValue="id"
+               placeholder="Select country"
+               [(ngModel)]="selectedCountryId"
+               (change)="onChange($event)">
+    </ng-select>
+  </div>
+  <div class="row mt-3">
+    <ng-select [items]="countries"
+               bindLabel="name"
+               placeholder="Select country"
+               [multiple]="true"
+               maxSelectedItems="3"
+               (add)="onAdd($event)"
+               (remove)="onRemove($event)">
+    </ng-select>
+  </div>
+</div>
